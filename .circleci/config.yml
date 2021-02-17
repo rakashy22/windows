@@ -1,15 +1,7 @@
-version: 2.1 # Use version 2.1 to enable orb usage.
-
-orbs:
-  win: circleci/windows@2.2.0 # The Windows orb give you everything you need to start using the Windows executor.
-
 jobs:
   build: # name of your job
-    executor:
-      name: win/default # executor type
-      size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
-
-    steps:
-      # Commands are run in a Windows virtual machine environment
-      - checkout
-      - run: Write-Host 'Hello, Windows'
+    machine: # executor type
+      image: ubuntu-2004:202010-01 # # recommended linux image - includes Ubuntu 20.04, docker 19.03.13, docker-compose 1.27.4
+      resource_class: xlarge
+      steps:
+        # Commands run in a Linux virtual machine environment
